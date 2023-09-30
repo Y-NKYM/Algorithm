@@ -42,7 +42,7 @@ for(let i=0; i<result.length; i++){
     console.log(result[i]);
 }
 
-//011.5:エラトステネスの篩（ふるい）
+//011.25:エラトステネスの篩（ふるい）
 function prime(n){
     let array = [];
     for(let i = 0; i<=n; i++){
@@ -53,19 +53,15 @@ function prime(n){
     for(let i = 2; i<=n; i++){
         //console.log("array[i]:", array[i], i)
         if(array[i]){
-            for(let j = i; j<=n; j++){
-                //console.log(j,"/",i);
-                if(j <= i){
-                    continue;
-                }
-                else if(j%i == 0){
+            for(let j = i+1; j<=n; j++){
+                if(j%i == 0){
                     //console.log(false)
                     array[j] = false;
                 }
             }
         }
     }
-    //console.log(array)
+    console.log(array)
     let primeArray = [];
     for(let i = 0; i<array.length; i++){
         if(array[i]){
@@ -74,4 +70,33 @@ function prime(n){
     }
     return primeArray;
 }
-console.log(prime(10));
+console.log(prime(10))
+
+//011.5:上記の余分な配列要素無しバージョン
+function prime(n){
+    let array = [];
+    for(let i = 0; i<n; i++){
+        array.push(true);
+    }
+    for(let i = 1; i<n; i++){  //true false
+        if(array[i]){
+            for(let x = 2; x<n; x++){  //割る数
+                for(let y = x+1; y<=n; y++){ //1~100
+                    if(y%x==0){
+                        console.log(y, "/", x)
+                        array[y-1] = false;
+                    }
+                }
+            }
+        }
+    }
+    console.log(array)
+    let primeArray = [];
+    for(let i = 0; i<n; i++){
+        if(array[i]){
+            primeArray.push(i+1)
+        }
+    }
+    return primeArray;
+}
+console.log(prime(10))
