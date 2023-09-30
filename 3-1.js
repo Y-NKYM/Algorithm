@@ -31,7 +31,7 @@ console.log(divisor(12))
 //014: 素因数分解
 function factorization(n){
     let array = []
-    for(let i = 2; i< i+1; i++){
+    for(let i = 2; true; i++){
         if(n!=1){
             while(n%i==0){
                 n /= i
@@ -49,16 +49,15 @@ console.log(factorization(100));
 let array = [];
 function fact(n){
     if(n==1){
-        return 1;
+        return;
     }
-    for(let i=2; i<n; i++){
+    for(let i=2; i<=n; i++){
         if(n%i == 0){
-            array.push(i)
-            console.log(n)
-            n /= i
-            console.log(array, n)
-            fact(n)
+            array.push(i);
+            n /= i;
+            fact(n);
+            break;
         }
     }
 }
-fact(100)
+fact(100);
