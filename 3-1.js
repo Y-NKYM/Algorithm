@@ -45,7 +45,7 @@ function factorization(n){
 }
 console.log(factorization(100));
 
-//014: 素因数分解・再帰関数（上手くいかず）
+//014: 素因数分解・再帰関数
 let array = [];
 function fact(n){
     if(n==1){
