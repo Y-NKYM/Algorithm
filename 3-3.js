@@ -51,3 +51,54 @@ for(let a=0; a<array.length; a++){
     }
 }
 console.log(count)
+
+//020: 再帰関数で行う（上手くいかず）
+// let count = 0;
+// let allcount = 0;
+// let array = [1,2,3,4,5,6,7]
+// function test(array, n){
+//     // if(count == n){
+//     //     return;
+//     // }
+//     //console.log(count)
+//     for(let a=0; a<array.length; a++){
+//         //console.log(count)
+//         console.log(array, count)
+//         count += 1
+//         test(array.slice(count), n);
+//         break;
+//     }
+// }
+// test(array, 5)
+
+//021:nCr
+function nCr(n, r){
+    let topNum = 1;
+    let bottomNum = 1;
+    let result = 0
+    for(let i=n; i>n-r; i--){  //6, 5
+    console.log(i)
+    topNum *= i;
+    }
+    for(let j=r; j>0; j--){
+        console.log(j)
+        bottomNum *= j;
+    }
+    result = topNum/bottomNum;
+    console.log(result)
+}
+nCr(6, 2);
+
+//022:
+let array1 = [40000, 50000, 20000, 80000, 50000, 30000];
+let count1 = 0;
+for(let a=0; a<array1.length; a++){
+    for(let b=a+1; b<array1.length; b++){
+        if(array1[a]+array1[b]== 100000){
+            count1 += 1
+        }
+    }
+}
+console.log(count1)
+
+
